@@ -43,7 +43,7 @@ exports.eliminarEnvios =async(req,res)=>{
     try{
 
         const {id}=req.params
-        const envioEliminado=Envio.findByIdAndDelete(id)
+        const envioEliminado= await Envio.findByIdAndDelete(id)
         if(!envioEliminado){
             return res.status(404).json({ error: "envio no encontrado" });
         }
